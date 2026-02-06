@@ -1,0 +1,317 @@
+:root{
+  --bg: #05060a;
+  --ink: #eef2ff;
+  --muted: rgba(238,242,255,.72);
+  --line: rgba(238,242,255,.16);
+  --glass: rgba(0,0,0,.45);
+  --glass2: rgba(0,0,0,.62);
+  --neon1: #35a7ff;
+  --neon2: #b16cff;
+  --panel: #ccddf9; /* sampled from your screenshot */
+  --shadow: 0 18px 50px rgba(0,0,0,.55);
+  --radius: 18px;
+  --max: 980px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+/*
+  Brandon Grotesque:
+  - This is a commercial font and isn’t available via Google Fonts.
+  - If you have a webfont license, put files in assets/fonts/ and add @font-face here.
+  - Then the font-family below will start using it automatically.
+
+  Example (replace filenames):
+
+  @font-face{
+    font-family: "Brandon Grotesque";
+    src: url("../fonts/BrandonGrotesque-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+*/
+
+body{
+  margin:0;
+  color:var(--ink);
+  background: var(--bg);
+  font-family: "Brandon Grotesque", "Space Grotesk", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  font-weight: 300;
+  letter-spacing: .02em;
+  line-height:1.6;
+}
+
+a{color:inherit; text-decoration-color: rgba(238,242,255,.35)}
+a:hover{color: white; text-decoration-color: rgba(255,255,255,.8)}
+
+.container{max-width:var(--max); margin:0 auto; padding:0 18px}
+
+.skip{
+  position:absolute;
+  left:-999px;
+  top:auto;
+  width:1px;height:1px;
+  overflow:hidden;
+}
+.skip:focus{
+  left:16px; top:16px;
+  width:auto; height:auto;
+  padding:10px 12px;
+  background: #000;
+  border:1px solid var(--line);
+  border-radius:10px;
+  z-index:9999;
+}
+
+/* Background image + overlays (Wix-ish) */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(1000px 700px at 20% 10%, rgba(53,167,255,.22), transparent 55%),
+    radial-gradient(900px 650px at 80% 20%, rgba(177,108,255,.20), transparent 60%),
+    linear-gradient(180deg, rgba(0,0,0,.30), rgba(0,0,0,.88)),
+    url("../img/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: saturate(1.08) contrast(1.06);
+  z-index:-2;
+}
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      rgba(255,255,255,.035),
+      rgba(255,255,255,.035) 1px,
+      transparent 1px,
+      transparent 6px
+    );
+  mix-blend-mode: overlay;
+  opacity:.25;
+  z-index:-1;
+  pointer-events:none;
+}
+
+/* Header */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index: 50;
+  background: rgba(0,0,0,.40);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid rgba(238,242,255,.10);
+}
+.header-inner{display:flex; align-items:center; justify-content:space-between; min-height:64px; gap:16px}
+
+.brand{display:flex; align-items:center; gap:10px}
+.brand-mark{display:none;}
+.brand-name{
+  font-weight: 300;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  text-decoration:none;
+  color: rgba(238,242,255,.92);
+}
+
+.nav{display:flex; align-items:center; gap:12px}
+.nav-toggle{
+  display:none;
+  background: transparent;
+  border:1px solid var(--line);
+  color:var(--ink);
+  padding:8px 10px;
+  border-radius:12px;
+}
+.nav-links{display:flex; gap:14px; align-items:center}
+.nav-links a{
+  text-decoration:none;
+  color: rgba(238,242,255,.82);
+  padding:8px 10px;
+  border-radius: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-size: .82rem;
+  font-weight: 300;
+}
+.nav-links a:hover{color: white; background: rgba(255,255,255,.06)}
+
+/* Hero */
+.hero{
+  min-height: 60vh;
+  display:flex;
+  align-items:flex-start;
+}
+.hero-bg{display:none;}
+.hero-inner{padding: 44px 0 28px; text-align:center}
+.kicker{
+  color: rgba(238,242,255,.78);
+  margin:0 0 12px;
+  text-transform:uppercase;
+  letter-spacing:.22em;
+  font-size: .76rem;
+}
+.hero h1{
+  margin:0;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: clamp(2.15rem, 6vw, 3.9rem);
+  letter-spacing: .22em;
+  color: rgba(238,242,255,.92);
+  text-shadow: 0 18px 60px rgba(0,0,0,.60);
+}
+.lead{
+  max-width: 62ch;
+  margin: 14px auto 0;
+  color: rgba(238,242,255,.86);
+  font-size: 1.05rem;
+}
+
+.cta-row{display:flex; justify-content:center; gap:12px; margin-top: 22px; flex-wrap:wrap}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(238,242,255,.18);
+  background: rgba(0,0,0,.35);
+  text-decoration:none;
+  color: var(--ink);
+  font-weight: 300;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-size: .82rem;
+}
+.btn:hover{background: rgba(255,255,255,.08)}
+.btn.primary{
+  border-color: transparent;
+  background: linear-gradient(135deg, rgba(53,167,255,.95), rgba(177,108,255,.92));
+  box-shadow: 0 14px 60px rgba(53,167,255,.15);
+}
+.btn.primary:hover{filter: brightness(1.06)}
+.btn.small{padding: 8px 12px; font-size: .92rem}
+
+.social-row{display:flex; justify-content:center; gap:16px; flex-wrap:wrap; margin-top: 18px; color: rgba(238,242,255,.75)}
+.social-row a{color: rgba(238,242,255,.80); text-decoration:none; letter-spacing:.18em; text-transform:uppercase; font-size:.78rem; font-weight:300}
+.social-row a:hover{color:white}
+
+/* Sections */
+.section{padding: 36px 0}
+
+/* Light panels for Spotify + Shows */
+#music, #shows{
+  background: var(--panel);
+  color: #000;
+}
+#music a, #shows a{ color: #000; text-decoration-color: rgba(0,0,0,.35) }
+#music a:hover, #shows a:hover{ color: #000; text-decoration-color: rgba(0,0,0,.65) }
+#music .muted, #shows .muted{ color: rgba(0,0,0,.70) }
+#music .card, #shows .card{
+  background: rgba(255,255,255,.45);
+  border-color: rgba(11,15,26,.12);
+  box-shadow: 0 16px 40px rgba(0,0,0,.18);
+}
+#music .embed{ border-color: rgba(11,15,26,.14); background: rgba(255,255,255,.55) }
+
+/* Force all typography inside these sections to black (overrides global heading styles) */
+#music .section-head h2, #shows .section-head h2{ color:#000; }
+#music h3, #shows h3{ color:#000; }
+#music .card h3, #shows .card h3{ color:#000; }
+#music .show-date, #shows .show-date,
+#music .show-venue, #shows .show-venue,
+#music .show-notes, #shows .show-notes{ color:#000; }
+
+.section-head{margin-bottom: 14px; text-align:center}
+.section-head h2{
+  margin:0;
+  font-weight: 300;
+  font-size: 1.18rem;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: rgba(238,242,255,.90);
+}
+.section-head p{margin: 8px auto 0; max-width: 70ch; color: var(--muted)}
+
+.card{
+  background: linear-gradient(180deg, rgba(0,0,0,.52), rgba(0,0,0,.64));
+  border: 1px solid rgba(238,242,255,.14);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+
+.card h3{
+  margin: 0 0 10px;
+  font-weight: 300;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-size: .96rem;
+  color: rgba(238,242,255,.90);
+}
+
+.grid{display:grid; gap:16px}
+.grid.one{grid-template-columns: 1fr}
+.grid.two{grid-template-columns: 1fr 1fr}
+.grid.three{grid-template-columns: 1fr 1fr 1fr}
+
+.muted{color: var(--muted)}
+.small{font-size: .92rem}
+
+.embed{border-radius: 14px; overflow:hidden; border:1px solid rgba(238,242,255,.14); background: rgba(0,0,0,.35)}
+
+.callout{
+  margin-top: 16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(238,242,255,.14);
+  background: linear-gradient(135deg, rgba(53,167,255,.12), rgba(177,108,255,.10));
+}
+
+.shows{list-style:none; padding:0; margin:0}
+.shows li{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px dashed rgba(238,242,255,.16);
+}
+.shows li:last-child{border-bottom:0}
+.show-date{font-weight: 650}
+.show-venue{color: rgba(238,242,255,.92)}
+.show-notes{font-size:.92rem}
+
+.bullets{margin: 10px 0 0; padding-left: 18px}
+.bullets li{margin: 6px 0}
+
+.site-footer{padding: 22px 0 10px}
+.footer-inner{display:flex; align-items:center; justify-content:space-between}
+
+@media (max-width: 860px){
+  .grid.two{grid-template-columns: 1fr}
+  .grid.three{grid-template-columns: 1fr}
+
+  .nav-toggle{display:inline-flex}
+  .nav{position:relative}
+  .nav-links{display:none; position:absolute; right:0; top:54px; flex-direction:column; align-items:stretch; min-width: 200px;
+    background: rgba(0,0,0,.80);
+    border: 1px solid rgba(238,242,255,.18);
+    border-radius: 16px;
+    padding: 10px;
+    box-shadow: var(--shadow);
+  }
+  .nav-links a{padding:10px 12px}
+  .nav-links.open{display:flex}
+}

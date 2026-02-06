@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Blue Circus — music, shows, and news." />
+
+  <title>Blue Circus</title>
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Blue Circus" />
+  <meta property="og:description" content="Music, shows, and news." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/img/og.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="data:," />
+
+  <!-- Fonts
+    Brandon Grotesque is a commercial font (not hosted by Google Fonts).
+    If you have a webfont license, you can self-host it in assets/fonts + @font-face in CSS.
+    For now, we load Space Grotesk as a free fallback.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <div class="brand">
+        <a class="brand-name" href="#top">Blue Circus</a>
+      </div>
+
+      <nav class="nav" aria-label="Primary">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+          Menu
+        </button>
+        <div class="nav-links" id="nav-links">
+          <a href="#music">Music</a>
+          <a href="#shows">Shows</a>
+          <a href="#bio">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-label="Blue Circus">
+      <div class="hero-bg" role="img" aria-label="Blue Circus photo"></div>
+      <div class="container hero-inner">
+        <h1>Blue Circus</h1>
+      </div>
+    </section>
+
+    <section class="section" id="music">
+      <div class="container">
+        <div class="section-head">
+          <h2>Music</h2>
+        </div>
+
+        <div class="grid one" style="max-width: 720px; margin: 0 auto;">
+          <div class="card">
+            <h3>Spotify</h3>
+            <div class="embed">
+              <iframe
+                style="border-radius:12px"
+                src="https://open.spotify.com/embed/artist/42QGxyB3GWRnchevdXg3ab?utm_source=generator"
+                width="100%"
+                height="352"
+                frameborder="0"
+                allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="shows">
+      <div class="container">
+        <div class="section-head">
+          <h2>Shows</h2>
+        </div>
+
+        <div class="card">
+          <ul class="shows" aria-label="Upcoming shows">
+            <li>
+              <div class="show-left">
+                <div class="show-venue">No upcoming shows announced.</div>
+              </div>
+            </li>
+          </ul>
+
+          <p class="small muted" style="margin-top: 12px;">
+            Booking: <a href="mailto:bluecircus718@gmail.com">bluecircus718@gmail.com</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="bio">
+      <div class="container">
+        <div class="section-head">
+          <h2>Bio</h2>
+        </div>
+
+        <div class="grid one" style="max-width: 720px; margin: 0 auto;">
+          <div class="card">
+            <h3>About</h3>
+            <p>
+              Started out as a group of four friends who enjoy making sounds in a small basement together, they decided
+              to share some of what they've been creating with the rest of the world. Though they're based in Brooklyn,
+              their sound may be difficult to place on a map. Inspired mainly by classic and alternative rock, each
+              member bring their own influences and flavors to create pensive, melodic songs, that you can dance to...
+            </p>
+</div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head">
+          <h2>Contact</h2>
+        </div>
+
+        <div class="grid one" style="max-width: 720px; margin: 0 auto;">
+          <div class="card">
+            <h3>Email</h3>
+            <p>
+              <a href="mailto:bluecircus718@gmail.com">bluecircus718@gmail.com</a>
+            </p>
+</div>
+
+          <div class="card">
+            <h3>Social</h3>
+            <ul class="bullets">
+              <li><a href="https://www.instagram.com/bluecircusmusic" target="_blank" rel="noreferrer">Instagram</a></li>
+              <li><a href="https://www.facebook.com/bluecircusmusic" target="_blank" rel="noreferrer">Facebook</a></li>
+              <li><a href="https://open.spotify.com/artist/42QGxyB3GWRnchevdXg3ab?si=DRDzV6QwQuWxQuaD29_dsw" target="_blank" rel="noreferrer">Spotify</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <footer class="site-footer">
+          <div class="container footer-inner">
+            <div class="muted small">© <span id="year"></span> Blue Circus</div>
+            <a class="muted small" href="#top">Back to top</a>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
